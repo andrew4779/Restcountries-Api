@@ -25,9 +25,7 @@ export default function Principal(props){
             <li 
                 key={nanoid()}
                 className={props.darkMode ? "dark-li" : "light-li"}
-                //codigo nuevo
                 onClick={(e) => props.handleClickMe(e)}
-                //fin codigo nuevo
             >
                 {con}
             </li>
