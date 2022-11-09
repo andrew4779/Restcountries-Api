@@ -33,7 +33,6 @@ export default function App() {
     setActive(!active)
   }
 
-  //codigo nuevo
 
   function seteame(e){
     if(e.currentTarget.innerHTML !== "N/A"){
@@ -45,7 +44,6 @@ export default function App() {
     }
   }
 
-  //fin de codigo nuevo
 
   function changeCountry(e){
     setRegion(() => {
@@ -55,7 +53,6 @@ export default function App() {
         }
         else{
           var regex = /[a-zA-Z]+/g;
-          //e.target.value = e.target.value.match(regex).join("")
           if(e.target.value.match(regex) === null){
             setRegion(`all`)
           }
@@ -63,15 +60,7 @@ export default function App() {
             setRegion(`name/${e.target.value.match(regex).join("")}`)
             console.log(e.target.value.match(regex).join(""))
           }
-          /*aqui va un regex*/
-          //setRegion(`name/${e.target.value}`)
-          //setRegion(`name/${comparando(e.target.value)}`)
-          //if(e.target.value.match(regex) !== null){
-            //setRegion(`name/${e.target.value.}`)
-            //e.target.value = e.target.value.match(regex).join("")
-            //setRegion(`name/${e.target.value.match(regex).join("")}`)
-            
-          //}
+        
 
         }
       }
@@ -103,7 +92,6 @@ export default function App() {
     )
   })
 
-  //.then(data => setCountry(data))
 
   React.useEffect(
   
@@ -113,14 +101,12 @@ export default function App() {
           if (data.status !== 404){
             setCountry(()=>(data))
 
-            //codigo nuevo
             if(active){
               setMero(data[0])
               console.log(mero)
               console.log("hola")
             }
 
-            //fin codigo nuevo
             
           }
           console.log(data)
@@ -149,7 +135,7 @@ export default function App() {
         {!active ? 
           <Filter 
             darkMode={darkMode}
-            changeCountry={changeCountry}//ultima linea act
+            changeCountry={changeCountry}
           /> : 
           <Button
             darkMode={darkMode}
@@ -160,7 +146,6 @@ export default function App() {
             {!active ?  countries : 
             <Principal
               darkMode={darkMode}
-              //tierra={mero}
               img={mero.flags.png}
               country={mero.name.official}
               native={mero.name.nativeName}
@@ -172,9 +157,7 @@ export default function App() {
               currencies={mero.currencies}
               languages={mero.languages}
               border={mero.borders ? mero.borders : ["N/A"]}
-              //codigo nuevo
               handleClickMe={seteame}
-              //fin codigo nuevo
             />
             }
           </main> 
